@@ -8,7 +8,7 @@ from discord.ext.commands.core import check
 from dotenv import load_dotenv
 
 load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
+#TOKEN = os.getenv('DISCORD_TOKEN')
 
 bot = Bot(command_prefix='?') 
 
@@ -19,7 +19,7 @@ async def on_ready():
 #define constants
 HOURS_PER_DAY = 24
 
-@bot.command()
+#@bot.command()
 async def hero(ctx, days: float, hours:float, potions: float):
 
     # Your calculations
