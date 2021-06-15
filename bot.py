@@ -1,11 +1,12 @@
 import discord
 import os
-#import keep_alive
+import keep_alive
 from discord.ext.commands import Bot
 
 bot = Bot(command_prefix='?') 
 
-token = 'TOKEN'
+
+token = os.environ['DISCORD_TOKEN']
 
 #define constants
 MINUTES_PER_HOUR = 60
@@ -24,5 +25,5 @@ if __name__ == '__main__':
     for ext in extensions:
         bot.load_extension(ext)
 
-#keep_alive.keep_alive()
+keep_alive.keep_alive()
 bot.run(token)
