@@ -1,4 +1,4 @@
-from potion import HOURS_PER_DAY, MINUTES_PER_HOUR
+from main import HOURS_PER_DAY, MINUTES_PER_HOUR
 from discord.ext import commands
 import discord
 import math
@@ -10,8 +10,8 @@ class HeroTime(commands.Cog):
     
     @commands.command(name = "herotime")
     async def hero(ctx, days: float, hours:float, potions: float):
-    
-    HOURS_PER_DAY = 24
+      
+     HOURS_PER_DAY = 24
     MINUTES_PER_HOUR = 60
 
     # Your calculations
@@ -38,12 +38,9 @@ class HeroTime(commands.Cog):
     final_hours = math.floor(upgrade_time % 24) 
     final_minutes = (upgrade_time - final_days * 24 - final_hours) * MINUTES_PER_HOUR
         
-    embed = discord.Embed(title = "HeroTime upgrade", description = "")
 
-    embed.add_field(name='Time Remaining for your Heroes to be up', value= '{}d {}h {}m'.format(final_days, final_hours, final_minutes, inline=True))
-    embed.add_field(name='Amount of time left on Builder potions', value= '{}d {}h {}m'.format(leftover_days, leftover_hours, leftover_minutes, inline=True))
-
-    await ctx.send(embed=embed)
+    (discord.Embed(title = "HeroTime upgrade", description = "")).add_field(name='Time Remaining for your Heroes to be up', value= '{}d {}h {}m'.format(final_days, final_hours, final_minutes, inline=True))
+    (discord.Embed(title = "HeroTime upgrade", description = "")).add_field(name='Amount of time left on Builder potions', value= '{}d {}h {}m'.format(leftover_days, leftover_hours, leftover_minutes, inline=True))
 
 def setup(bot):
       bot.add_cog(HeroTime(bot))

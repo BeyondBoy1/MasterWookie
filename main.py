@@ -1,7 +1,10 @@
 import discord
 import os
+from flask import Flask
 import keep_alive
 from discord.ext.commands import Bot
+from threading import Thread
+
 
 bot = Bot(command_prefix='?') 
 
@@ -19,7 +22,7 @@ async def on_ready():
   
     #final return (always round up) 
 
-extensions = ['cogs.CommandEvents','cogs.BuilderPots','cogs.HelpInfo',]
+extensions = ['cogs.CommandEvents','cogs.BuilderPots','cogs.HelpInfo','cogs.HeroTime']
 
 if __name__ == '__main__':
     for ext in extensions:

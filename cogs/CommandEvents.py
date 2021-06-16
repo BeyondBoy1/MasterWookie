@@ -5,6 +5,7 @@ class CommandEvents(commands.Cog):
     def __init__(self,bot):
         self.bot= bot
 
+
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
       print(ctx.command.name + "was invoked incorrectly.")
