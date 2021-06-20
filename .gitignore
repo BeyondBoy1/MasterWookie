@@ -1,5 +1,6 @@
 # Ignore files related to API keys
 .env
 
+
 #caches and vscode files
 \__pycache__

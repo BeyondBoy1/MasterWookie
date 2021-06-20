@@ -1,0 +1,22 @@
+{
+  "name": "discordbackup",
+  "version": "2.5.0",
+  "description": "Discord Bot for Wookie Allied Forces",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeyondBoy1/MasterWookie.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BeyondBoy1/MasterWookie/issues"
+  },
+  "homepage": "https://github.com/BeyondBoy1/MasterWookie#readme",
+  "dependencies": {
+    "discord-backup": "^2.5.0"
+  }
+}
