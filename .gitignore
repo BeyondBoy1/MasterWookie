@@ -1,6 +1,6 @@
 # Ignore files related to API keys
 .env
-
+Backup\config.json
 
 #caches and vscode files
 \__pycache__
