@@ -4,4 +4,7 @@ config.json
 
 #caches and vscode files
 \__pycache__
+
+
+#dependencies
 \node_modules
