@@ -10,6 +10,7 @@ class Interview(commands.Cog):
 
   #Sends Welcome and War Rules Images
     @commands.group(name = "interview")
+    @commands.has_role('Elder')
     async def interview(self,ctx):
       embed = discord.Embed(title = "General Rules",description = "If you accept the following rules, react with a 👍 ")
       embed.set_image(url="https://media.discordapp.net/attachments/849131570618040360/854989465118441482/General_Rules.png")
@@ -27,10 +28,10 @@ class Interview(commands.Cog):
 
       while True:
           try:
-            reaction1, user1=await self.bot.wait_for("reaction_add", timeout=60)
+            reaction1, user1=await self.bot.wait_for("reaction_add", timeout=180)
             if str(reaction1.emoji) == "👍" and msg1.id==reaction1.message.id:
                 try:
-                    reaction2, user2=await self.bot.wait_for("reaction_add", timeout=60)
+                    reaction2, user2=await self.bot.wait_for("reaction_add", timeout=180)
                     if str(reaction2.emoji) == "👍" and msg2.id==reaction2.message.id and user2.id==user1.id:
                         Role = discord.utils.get(user2.guild.roles, name="Briefed")
                         await user2.add_roles(Role)
