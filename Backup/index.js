@@ -11,7 +11,6 @@ config = require('./config.json');
 client.on("ready", () => {
     console.log("I'm ready !");
 })
-
 client.on("message", async message => {
 
     // This reads the first part of your message behind your prefix to see which command you want to use.
@@ -25,26 +24,22 @@ client.on("message", async message => {
     // If the command comes from DM return.
     if (!message.content.startsWith(config.prefix) || message.author.bot || !message.guild) return;
 
-    
     if(command === "create"){
         // Check member permissions
         if(!message.member.hasPermission("ADMINISTRATOR")){
             return message.channel.send(":x: | You must be an administrator of this server to request a backup!");
         }
         // Create the backup
-        const backup = require("discord-backup");
-            backup.create(config.guild, {
-            maxMessagesPerChannel: 1000,
+        backup.create(message.guild, {
+            maxMessagesPerChannel: 100,
             jsonSave: false,
-            jsonBeautify: true,
-            doNotBackup: [ "roles",  "channels", "emojis", "bans" ],
+            jsonBeautify: true
         }).then((backupData) => {
-            // And send informations to the backup owner
+            console.log(backupData.id);
             message.author.send("The backup has been created! To load it, type this command on the server of your choice: `"+config.prefix+"load "+backupData.id+"`!");
             message.channel.send(":white_check_mark: Backup successfully created. The backup ID was sent in dm!");
         });
     }
-
 
     if(command === "load"){
         // Check member permissions
@@ -72,7 +67,6 @@ client.on("message", async message => {
                 // Load the backup
                 backup.load(backupID, message.guild).then(() => {
                     // When the backup is loaded, delete them from the server
-                    clearGuildBeforeRestore: true;
                     backup.remove(backupID);
                 }).catch((err) => {
                     // If an error occurred
@@ -114,6 +108,5 @@ client.on("message", async message => {
     }
 
 });
-
 //Your secret token to log the bot in. (never share this to anyone!)
 client.login(config.token);
