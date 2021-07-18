@@ -24,7 +24,15 @@ async def on_ready():
   
     #final return (always round up) 
 
-extensions = ['cogs.CommandEvents','cogs.BuilderPots','cogs.HelpInfo','cogs.HeroTime','cogs.Interview']
+extensions = [
+    'cogs.CommandEvents', 
+    'cogs.HeroTime', 
+    'cogs.HelpCommands',
+    'cogs.BuilderPots', 
+    'cogs.Interview',
+     'cogs.ClanInfo', 
+     'cogs.Clear',
+    'cogs.Eagle']
 
 if __name__ == '__main__':
     for ext in extensions:
