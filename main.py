@@ -5,7 +5,7 @@ from flask import Flask
 from discord.ext.commands import Bot
 from threading import Thread
 from dotenv import load_dotenv
-
+from discord_components import *
 
 bot = Bot(command_prefix='?') 
 
@@ -20,11 +20,12 @@ HOURS_PER_DAY = 24
 @bot.event
 async def on_ready():
   print(f'{bot.user} has connected to Discord!')
+  DiscordComponents(bot)
   await bot.change_presence(activity = discord.Game("Clash of Clans"))
   
     #final return (always round up) 
 
-extensions = ['cogs.CommandEvents','cogs.BuilderPots','cogs.HelpInfo','cogs.HeroTime','cogs.Interview']
+extensions = ['cogs.CommandEvents','cogs.BuilderPots','cogs.HelpInfo','cogs.HeroTime','cogs.Interview','cogs.Form']
 
 if __name__ == '__main__':
     for ext in extensions:
