@@ -25,7 +25,19 @@ async def on_ready():
   
     #final return (always round up) 
 
+<<<<<<< HEAD
 extensions = ['cogs.CommandEvents','cogs.BuilderPots','cogs.HelpInfo','cogs.HeroTime','cogs.Interview','cogs.Form']
+=======
+extensions = [
+    'cogs.CommandEvents', 
+    'cogs.HeroTime', 
+    'cogs.HelpCommands',
+    'cogs.BuilderPots', 
+    'cogs.Interview',
+     'cogs.ClanInfo', 
+     'cogs.Clear',
+    'cogs.Eagle']
+>>>>>>> 41836e2b72f51842080a66a6950d186165b5b785
 
 if __name__ == '__main__':
     for ext in extensions:
