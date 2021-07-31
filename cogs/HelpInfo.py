@@ -1,6 +1,8 @@
 from discord.ext import commands
 import asyncio
 import discord
+from discord import Color as c
+import datetime
 
 class HelpCommands(commands.Cog):
     def __init__(self,bot):
@@ -16,6 +18,8 @@ class HelpCommands(commands.Cog):
         embed.add_field(name='2nd parameter', value = ' Hours on hero upgrade', inline=True )
         embed.add_field(name='3rd parameter', value = 'Intended # of potions to use', inline=True )
         embed.add_field(name='Syntax', value = '?herotime  2 12 3 ', inline=False )
+        embed.set_footer(text="Command invoked by {}".format(ctx.message.author.name))
+        embed.timestamp=datetime.datetime.utcnow()
 
         await ctx.send(embed=embed)
 
@@ -32,6 +36,8 @@ class HelpCommands(commands.Cog):
         embed.add_field(name='2nd parameter', value = ' Days on hero upgrade', inline=True )
         embed.add_field(name='3rd parameter', value = 'Hours on hero upgrade', inline=True )
         embed.add_field(name='Syntax', value = '?builderpots 2 2 12 ', inline=False )
+        embed.set_footer(text="Command invoked by {}".format(ctx.message.author.name))
+        embed.timestamp=datetime.datetime.utcnow()
 
         await ctx.send(embed=embed)
     
@@ -49,6 +55,18 @@ class HelpCommands(commands.Cog):
         embed.add_field(name='Syntax', value = '?ea  1 220 4 1 0 ', inline=False )
 
         await ctx.send(embed=embed)
+
+    @commands.command(name="help")
+    async def help(self,ctx):
+      author = ctx.message.author
+      embed =(discord.Embed(color = c.gold()))
+      embed.add_field(name='Hero Time', value = 'Tells you the time it will take to upgrade your hero if you use X amount of builderpots',inline=False)
+      embed.add_field(name='Builder Pots', value = 'Tells you the number of builder potions you need to use between NOW and 4 hours before the end of the next war',inline=False)
+      embed.add_field(name='Eagle Artillery', value = 'Calculates amount of troops needed for Eagle Artillery to activate',inline=False)
+      embed.set_footer(text="Command invoked by {}".format(ctx.message.author.name))
+      embed.timestamp=datetime.datetime.utcnow()
+
+      await ctx.send(embed=embed)
 
 def setup(bot):
       bot.add_cog(HelpCommands(bot))
