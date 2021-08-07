@@ -33,8 +33,7 @@ extensions = [
     'cogs.Interview',
      'cogs.ClanInfo', 
      'cogs.Clear',
-     'cogs.Donor'
-    'cogs.Eagle']
+     'cogs.Donor']
 
 if __name__ == '__main__':
     for ext in extensions:
