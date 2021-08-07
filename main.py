@@ -33,6 +33,7 @@ extensions = [
     'cogs.Interview',
      'cogs.ClanInfo', 
      'cogs.Clear',
+     'cogs.Donor'
     'cogs.Eagle']
 
 if __name__ == '__main__':
